@@ -19,3 +19,6 @@ The purpose of this lib is to generate Solidity SmartContract from a State Machi
 ```sh
 run node solidityGenerator.js --generate --source [absolute path of JSONSource.json]
 ```
+
+## Test the generated smartContract !
+A file (contractName.solc) is generated at the root of the project
