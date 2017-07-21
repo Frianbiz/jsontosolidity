@@ -22,3 +22,9 @@ run node solidityGenerator.js --generate --source [absolute path of JSONSource.j
 
 ## Test the generated smartContract !
 A file (contractName.solc) is generated at the root of the project
+```sh
+pragma solidity ^0.4.0; 
+contract Campaign {
+    enum States { inprogress,success,fail}
+}
+```
