@@ -1,0 +1,1 @@
+pragma solidity ^0.4.0; contract Campaign {enum States { inprogress,success,fail}}

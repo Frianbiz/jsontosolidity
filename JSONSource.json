@@ -1,0 +1,9 @@
+{
+"contractName":"Campaign",
+"init":"inprogress",
+"transitions":[
+    {"name":"contribute", "from":"inprogress", "to":"success"},
+    {"name":"contribute", "from":"inprogress", "to":"fail"},
+    {"name":"canceled", "from":"inprogress", "to":"fail"}
+  ]
+}
