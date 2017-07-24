@@ -25,6 +25,17 @@ A file (contractName.solc) is generated at the root of the project
 ```sh
 pragma solidity ^0.4.0; 
 contract Campaign {
+
     enum States { inprogress,success,fail}
+    
+    modifier atStage(Stages _expectedStage) {
+    // if the current state does not equal the expected one, throw
+    if (stage() != uint256(_expectedStage)) {
+      throw;
+    } else {
+      // continue with state changing operations
+      _;
+    }
+  }
 }
 ```
