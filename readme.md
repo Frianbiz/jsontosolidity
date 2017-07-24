@@ -23,19 +23,42 @@ run node solidityGenerator.js --generate --source [absolute path of JSONSource.j
 ## Test the generated smartContract !
 A file (contractName.solc) is generated at the root of the project
 ```sh
-pragma solidity ^0.4.0; 
+pragma solidity ^0.4.0;
+
 contract Campaign {
 
-    enum States { inprogress,success,fail}
-    
-    modifier atStage(Stages _expectedStage) {
-    // if the current state does not equal the expected one, throw
-    if (stage() != uint256(_expectedStage)) {
-      throw;
-    } else {
-      // continue with state changing operations
-      _;
+    enum States 
+    { 
+        inprogress,
+        success,
+        fail
     }
-  }
+    
+    // get the current campaign stage
+    function state() public constant returns (uint256)
+    {
+        return uint256(States.inprogress);
+    }
+
+    // if the current state does not equal the expected one, throw
+    modifier atStage(States _expectedState) 
+    {
+        if (state() != uint256(_expectedState)) {
+            throw;
+        }
+        else 
+        {
+            // continue with state changing operations
+            _;
+        }
+    }
+  
+    // must be at state inprogress
+    function contribute() public atStage(States.inprogress) 
+    {
+        //put your code here
+    }
+    
+    //todo genere other transitions function ...
 }
 ```
